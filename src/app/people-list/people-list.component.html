@@ -1,0 +1,10 @@
+<!-- Template for People-List -->
+
+<!-- this is the new syntax for ng-repeat -->
+<ul>
+    <!-- * before ngFor denotes the fact that *ngFor is a structural directive: affects the DOM in some way -->
+    <!--  let person creates a local template variable that contains each item within the people array and is bound to each li -->
+    <li *ngFor="let person of people">
+      {{person.name}}
+    </li>
+  </ul>
