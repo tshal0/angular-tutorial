@@ -5,6 +5,21 @@
     <!-- * before ngFor denotes the fact that *ngFor is a structural directive: affects the DOM in some way -->
     <!--  let person creates a local template variable that contains each item within the people array and is bound to each li -->
     <li *ngFor="let person of people">
-      {{person.name}}
+      <!-- HERE: add a element with click event binding -->
+      <a [routerLink]="['/persons', person.id]">
+          {{person.name}}
+      </a>
     </li>
   </ul>
+
+  <!-- HERE: we add the template for the person details -->
+
+  <app-person-details [person]="selectedPerson"></app-person-details>
+
+  <!-- <section *ngIf="selectedPerson">
+    <h2>You selected: {{selectedPerson.name}}</h2>
+    <h3>Description:</h3>
+    <p>
+      {{selectedPerson.name}} weighs {{selectedPerson.weight}} and is {{selectedPerson.height}} tall. 
+    </p>
+  </section> -->
