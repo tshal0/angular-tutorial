@@ -5,17 +5,7 @@ import { PeopleService } from '../people.service';
 
 @Component({
   selector: 'app-person-details',
-  template: `
-    <!-- we moved the details template here -->
-  <section *ngIf="person">
-    <h2>You selected: {{person.name}}</h2>
-    <h3>Description</h3>
-    <p>
-      {{person.name}} weights {{person.weight}} and is {{person.height}} tall.
-    </p>
-</section>
-<button (click)="gotoPeoplesList()">Back to peoples list</button>
-  `,
+  templateUrl: '../person-details/person-details.component.html',
   styles: []
 })
 
@@ -44,6 +34,10 @@ export class PersonDetailsComponent implements OnInit, OnDestroy {
     // let link = ['/persons'];
     // this.router.navigate(link);
     window.history.back();
+  }
+
+  savePersonDetails(){
+    this.peopleService.save(this.person);
   }
 
 }
