@@ -3,6 +3,7 @@ import { Person } from "../person";
 import {ActivatedRoute, Router} from '@angular/router';
 import { PeopleService } from '../people.service';
 
+
 @Component({
   selector: 'app-person-details',
   templateUrl: '../person-details/person-details.component.html',
@@ -22,7 +23,11 @@ export class PersonDetailsComponent implements OnInit, OnDestroy {
   ngOnInit(){
     this.sub = this.route.params.subscribe(params => {
       let id = Number.parseInt(params['id']);
-      this.person = this.peopleService.get(id);
+      console.log('getting person with id: ', id);
+      console.log(params);
+      this.peopleService
+        .get(id)
+        .subscribe(p => this.person = p);
     })
   }
 

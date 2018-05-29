@@ -18,7 +18,9 @@ export class PeopleListComponent implements OnInit {
   constructor(private _peopleService: PeopleService) { }
 
   ngOnInit() { 
-    this.people = this._peopleService.getAll();
+    this._peopleService
+      .getAll()
+      .subscribe(p => this.people = p);
    }
 
    // New methods
